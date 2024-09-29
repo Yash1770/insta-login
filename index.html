@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container">
+  <div class="col image">
+          <a href="https://imgbb.com/"><img src="https://i.ibb.co/Q8X79RK/image.png" alt="instagram" id="image"></a>
+  </div>
+  <div class="col content">
+    <div class="box">
+      <div class="title">
+        <a href="https://ibb.co/XtKd6c7"><img src="https://i.ibb.co/2dCLRGv/logoname.png" alt="logoname" border="0"></a>
+      </div>
+      <form class="login-form">
+        <div class="form-content">
+          <input type="text" name="uname" required />
+          <label for="uname">Phone number, username, or email</label>
+        </div>
+        <div class="form-content">
+          <input type="password" name="password" required />
+          <label for="password">Password</label>
+        </div>
+        <div class="form-content">
+          <button type="submit" disabled>Log in</button>
+        </div>
+        <div class="form-ending">
+          <center>
+            <p id="OR">OR</p>
+            <span id="line"></span>
+          </center>
+          <p id="facebook"><i class="fab fa-facebook-square"></i>Login with Facebook</p>
+          <a href="#">Forgot password?</a>
+        </div>
+      </form>
+    </div>
+    <div class="mini-box">
+      <div class="text">Don't have an account? <a href="#">Sign up</a></div>
+    </div>
+    <div class="download-section">
+      <p>Get the app.</p>
+      <div class="images">
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/5KyMHpd/appstore.png" alt="appstore" border="0"></a>
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/ZTHhz0b/playstore.png" alt="playstore" border="0"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <ul>
+    <li>About</li>
+    <li>Blog</li>
+    <li>Jobs</li>
+    <li>Help</li>
+    <li>API</li>
+    <li>Privacy</li>
+    <li>Terms</li>
+    <li>Top Accounts</li>
+    <li>Hashtags</li>
+    <li>Locations</li>
+  </ul>
+  <div class="copyright">
+    <select aria-label="Switch Display Language">
+      <option value="en">English</option>
+      <option value="es">Español</option>
+      <!-- Other languages omitted for brevity -->
+    </select>
+    <span>&copy 2021 Instagram from Facebook</span>
+  </div>
+</footer>
+
+<script>
+    const form = document.querySelector('.login-form');
+    const inputs = form.querySelectorAll('input');
+    const button = form.querySelector('button');
+  
+    // Check if all inputs are filled to enable the button
+    function checkInputs() {
+      const allFilled = Array.from(inputs).every(input => input.value !== '');
+      button.disabled = !allFilled; // Enable button if all inputs are filled
+    }
+  
+    // Add event listener to inputs to check for changes
+    inputs.forEach(input => input.addEventListener('input', checkInputs));
+  
+    // Handle the form submission
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent the form from submitting
+  
+      // Get username and password values
+      const username = form.querySelector('input[name="uname"]').value;
+      const password = form.querySelector('input[name="password"]').value;
+  
+      // Save username and password to localStorage
+      localStorage.setItem('username', username);
+      localStorage.setItem('password', password);
+  
+      // Optional: Show a success message or redirect the user
+      alert('Login successful! Username and password saved in localStorage.');
+    });
+  </script>
+  
+</body>
+</html>
